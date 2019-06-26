@@ -76,7 +76,7 @@ def merge(spanish, english):
 def sort_on_confidence(combined):
     from operator import itemgetter
     combined.sort(key=itemgetter('start_time'))
-    
+    print(combined)
 
 
 def main(filename):
