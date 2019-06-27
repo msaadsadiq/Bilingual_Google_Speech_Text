@@ -75,8 +75,15 @@ def merge(spanish, english):
 
 def sort_on_confidence(combined):
     from operator import itemgetter
+    clean_combined = []
     combined.sort(key=itemgetter('start_time'))
-    print(combined)
+    for i in range(len(combined)-1):
+    	if(combined[i]["end_time"] >= combined[i+1]["start_time"]):
+    		if(combined[i]["confidence"] > combined[i+1]["confidence"]):
+    			clean_combined.append(combined[i])
+    		else:
+    			clean_combined.append(combined[i+1])
+    print(clean_combined)
 
 
 def main(filename):
